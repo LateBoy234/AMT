@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>AMP.Application</RootNamespace>
+    <Description>应用层：流程编排器、运动状态机、测量执行器与三个业务流程（SVD修正/计量判断/重复性测试）。</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AMP.Domain\AMP.Domain.csproj" />
+    <!-- DI 扩展方法（IServiceCollection）仅需抽象包 -->
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+  </ItemGroup>
+
+</Project>

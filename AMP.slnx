@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AMP.Application/AMP.Application.csproj" />
+    <Project Path="src/AMP.Domain/AMP.Domain.csproj" />
+    <Project Path="src/AMP.Infrastructure.Data/AMP.Infrastructure.Data.csproj" />
+    <Project Path="src/AMP.Infrastructure.Instrument/AMP.Infrastructure.Instrument.csproj" />
+    <Project Path="src/AMP.Infrastructure.Motion/AMP.Infrastructure.Motion.csproj" />
+    <Project Path="src/AMP.SmokeTest/AMP.SmokeTest.csproj" />
+    <Project Path="src/AMP.UI/AMP.UI.csproj" />
+  </Folder>
+</Solution>

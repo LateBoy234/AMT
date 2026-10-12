@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>AMP.Infrastructure.Motion</RootNamespace>
+    <Description>基础设施-运动控制：各厂商三轴控制器适配器（C++ DLL P/Invoke 骨架）+ 数据库模拟运动控制器。</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AMP.Domain\AMP.Domain.csproj" />
+    <!-- AmtOptions 全局配置定义在数据基础设施层 -->
+    <ProjectReference Include="..\AMP.Infrastructure.Data\AMP.Infrastructure.Data.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+  </ItemGroup>
+
+</Project>

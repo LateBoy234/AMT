@@ -1,0 +1,70 @@
+<Window x:Class="AMP.UI.Views.ShellWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AMP" Width="1180" Height="740" WindowStartupLocation="CenterScreen"
+        Background="#12161d">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- 头部：标题 / 设备徽标 / 连接状态 / 全局控制 -->
+        <Border Grid.Row="0" Background="#1a2130" BorderBrush="#2a3344" BorderThickness="0,0,0,1" Padding="16,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="AMP" FontSize="17" FontWeight="Bold" Foreground="#5b9bff" VerticalAlignment="Center" Margin="0,0,14,0" />
+                    <TextBlock Text="{Binding MotionBadge}" Foreground="#cbd5e1" FontSize="12" VerticalAlignment="Center" Margin="0,0,14,0" />
+                    <TextBlock Text="{Binding InstrumentBadge}" Foreground="#cbd5e1" FontSize="12" VerticalAlignment="Center" />
+                </StackPanel>
+                <TextBlock Grid.Column="1" Text="{Binding MotionStatusText}" Foreground="#8b95a1" FontSize="12" VerticalAlignment="Center" Margin="0,0,14,0" />
+                <TextBlock Grid.Column="2" Text="{Binding InstrumentStatusText}" Foreground="#8b95a1" FontSize="12" VerticalAlignment="Center" Margin="0,0,18,0" />
+                <Button Grid.Column="3" Content="开始全流程" Style="{StaticResource PrimaryButton}" Command="{Binding RunAllCommand}" Margin="0,0,8,0" />
+                <Button Grid.Column="4" Content="停止" Style="{StaticResource SecondaryButton}" Command="{Binding StopAllCommand}" />
+            </Grid>
+        </Border>
+
+        <!-- 主体：侧栏导航 + 内容区 -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="#161c26" BorderBrush="#232c3a" BorderThickness="0,0,1,0" Padding="8">
+                <ListBox ItemsSource="{Binding NavigationItems}"
+                         SelectedItem="{Binding SelectedNavigationItem}"
+                         Background="Transparent" BorderThickness="0"
+                         ItemContainerStyle="{StaticResource NavItemStyle}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" Foreground="#e6ebf2" FontSize="14" />
+                                <TextBlock Text="{Binding Description}" Foreground="#6b7a8c" FontSize="11" TextWrapping="Wrap" Margin="0,3,0,0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+
+            <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}" />
+        </Grid>
+
+        <!-- 状态条：运动状态 + 轴坐标 -->
+        <Border Grid.Row="2" Background="#1a2130" BorderBrush="#2a3344" BorderThickness="0,1,0,0" Padding="16,8">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="当前状态：" Foreground="#8b95a1" FontSize="13" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding MotionStateText}" Foreground="#5b9bff" FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,24,0" />
+                <TextBlock Text="{Binding AxisText}" Foreground="#cbd5e1" FontFamily="Consolas" FontSize="13" VerticalAlignment="Center" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

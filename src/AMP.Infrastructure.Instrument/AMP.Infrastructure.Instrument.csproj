@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>AMP.Infrastructure.Instrument</RootNamespace>
+    <Description>基础设施-仪器：各类型测量仪器适配器 + 数据库模拟测量仪器。</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AMP.Domain\AMP.Domain.csproj" />
+    <!-- AmtOptions 全局配置定义在数据基础设施层 -->
+    <ProjectReference Include="..\AMP.Infrastructure.Data\AMP.Infrastructure.Data.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+  </ItemGroup>
+
+</Project>

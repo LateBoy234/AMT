@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>AMP.UI</RootNamespace>
+    <AssemblyName>AMP.UI</AssemblyName>
+    <Description>表现层：WPF + MVVM，三个流程独立界面，流程完成自动跳转。</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AMP.Domain\AMP.Domain.csproj" />
+    <ProjectReference Include="..\AMP.Application\AMP.Application.csproj" />
+    <ProjectReference Include="..\AMP.Infrastructure.Motion\AMP.Infrastructure.Motion.csproj" />
+    <ProjectReference Include="..\AMP.Infrastructure.Instrument\AMP.Infrastructure.Instrument.csproj" />
+    <ProjectReference Include="..\AMP.Infrastructure.Data\AMP.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,57 @@
+<UserControl x:Class="AMP.UI.Views.SvdCorrectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- 标题 + 控制按钮 -->
+        <Grid Grid.Row="0" Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Text="{Binding Title}" FontSize="20" FontWeight="Bold" Foreground="#e6ebf2" />
+                <TextBlock Text="{Binding Description}" FontSize="12" Foreground="#8b95a1" Margin="0,4,0,0" TextWrapping="Wrap" />
+            </StackPanel>
+            <Button Grid.Column="1" Content="开始（从本流程）" Style="{StaticResource PrimaryButton}" Command="{Binding RunCommand}" Margin="0,0,8,0" VerticalAlignment="Center" />
+            <Button Grid.Column="2" Content="停止" Style="{StaticResource SecondaryButton}" Command="{Binding StopCommand}" VerticalAlignment="Center" />
+        </Grid>
+
+        <!-- 摘要 + 运行日志 -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Style="{StaticResource CardStyle}" Margin="0,0,8,0">
+                <StackPanel>
+                    <TextBlock Text="本流程摘要" Style="{StaticResource SectionTitleStyle}" />
+                    <TextBlock Text="{Binding StatusText}" Foreground="#cbd5e1" FontSize="13" TextWrapping="Wrap" Margin="0,0,0,8" />
+                    <ItemsControl ItemsSource="{Binding Summary}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" Foreground="#9fb3c8" FontSize="12" Margin="0,2" TextWrapping="Wrap" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="1" Style="{StaticResource CardStyle}" Margin="8,0,0,0">
+                <StackPanel>
+                    <TextBlock Text="运行日志（全流程共享）" Style="{StaticResource SectionTitleStyle}" />
+                    <ListBox ItemsSource="{Binding Logs}" Background="Transparent" BorderThickness="0"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <TextBlock Grid.Row="2" Text="提示：点击「开始」从本流程开始运行流程链；组合流程每完成一步自动跳到下一个界面，链结束回到空闲。" 
+                   FontSize="12" Foreground="#6b7a8c" Margin="0,10,0,0" TextWrapping="Wrap" />
+    </Grid>
+</UserControl>

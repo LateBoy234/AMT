@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>AMP.Domain</RootNamespace>
+    <Description>领域层：运动/仪器/流程的抽象接口、状态枚举、纯业务规则与存储契约。不依赖任何硬件、UI 与第三方库。</Description>
+  </PropertyGroup>
+
+</Project>

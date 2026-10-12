@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>AMP.SmokeTest</RootNamespace>
+    <Description>无界面冒烟测试：装配 DI → 连接模拟设备 → 运行完整流程链 → 校验状态机与 SQLite 数据。</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AMP.Domain\AMP.Domain.csproj" />
+    <ProjectReference Include="..\AMP.Application\AMP.Application.csproj" />
+    <ProjectReference Include="..\AMP.Infrastructure.Motion\AMP.Infrastructure.Motion.csproj" />
+    <ProjectReference Include="..\AMP.Infrastructure.Instrument\AMP.Infrastructure.Instrument.csproj" />
+    <ProjectReference Include="..\AMP.Infrastructure.Data\AMP.Infrastructure.Data.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\AMP.UI\appsettings.json" Link="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
